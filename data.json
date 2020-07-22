@@ -1,3 +1,22 @@
 {
-  "instructors": []
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://google.com.br",
+      "name": "leonardo",
+      "birth": 703382400000,
+      "gender": "M",
+      "services": "musculação, crossfit",
+      "created_at": 1594956670961
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://google.com.br",
+      "name": "tatiana",
+      "birth": 457228800000,
+      "gender": "F",
+      "services": "boxe, kickboxe",
+      "created_at": 1594956709072
+    }
+  ]
 }
