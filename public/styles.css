@@ -165,7 +165,7 @@ input[type="radio"] {
 }
 
 input::placeholder {
-    font-size  : 14px;
+    font-size  : 16px;
     font-weight: normal;
 }
 
@@ -175,9 +175,9 @@ a.button{
     background-color: var(--primary-color);
     color: white;
     border-radius: 4px;
-    margin-top: 28px;
+    margin-top: 32px;
     width: 100%;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 a.button{
@@ -185,4 +185,9 @@ a.button{
     box-sizing: border-box;
     text-align: center;
     text-decoration: none;
+}
+
+#form-delete button[type="submit"] {
+    margin-top: 8px;
+    background-color: lightcoral;
 }
