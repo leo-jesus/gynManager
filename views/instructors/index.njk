@@ -1,8 +1,8 @@
 {% extends 'layout.njk' %}
 
 {% block content %}
-<div class="card">
-    <section class="avatar"></section>
+    <div class="card table-container">
+        {# <section class="avatar"></section>
     <section class="details">
         <h3>Detalhes</h3>
 
@@ -32,10 +32,43 @@
             <div>Desde</div>
             <div>01/01/2019</div>
         </div>
-    </section>
+    </section> #}
 
-</div>
+        <table width="100%">
+            <thead>
+                <tr>
+                    <th>Intructor</th>
+                    <th>Atendimento</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
 
+            <tbody>
+                {%for instructor in instructors%}
+                    {%set attendance = instructor.services.split(",")%}
+                    <tr>
+                        <td>
+                            <span style="background-image: url({{instructor.avatar_url}})"></span>
+                            {{instructor.name}}
+                        </td>
+                        <td>
+                            <div>
+                                {% for a in attendance %}
+                                    <span>
+                                        {{a}}
+                                    </span>
+                                {% endfor %}
+                            </div>
 
+                        </td>
+                        <td>
+                            <a href="/instructors/{{instructor.id}}">ver</a>
+                        </td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
 
-{% endblock content %}
+            </table>
+        </div>
+
+    {% endblock content %}

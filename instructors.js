@@ -2,6 +2,9 @@ const fs = require('fs')
 const data = require('./data.json')
 const { age, date } = require('./utils')
 const Intl = require('intl')
+exports.index = (req, res) => {
+    return res.render('instructors/index', { instructors: data.instructors })
+}
 
 //show 
 exports.show = (req, res) => {
@@ -101,7 +104,9 @@ exports.put = (req, res) => {
     const instructor = {
         ...foundInstructor,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
+
     }
 
     data.instructors[index] = instructor
@@ -116,16 +121,16 @@ exports.put = (req, res) => {
 
 //detele
 
-exports.delete = (req, res)=>{
-    const {id} = req.body
-    const filteredInstructors = data.instructors.filter((instructor)=>{
-        return instructor.id !=id
+exports.delete = (req, res) => {
+    const { id } = req.body
+    const filteredInstructors = data.instructors.filter((instructor) => {
+        return instructor.id != id
     })
 
     data.instructors = filteredInstructors
 
-    fs.writeFile("data.json", JSON.stringify(data, null, 2),(err)=>{
-        if(err) return res.send("write file error")
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), (err) => {
+        if (err) return res.send("write file error")
 
         return res.redirect("/instructors")
     })
