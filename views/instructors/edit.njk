@@ -3,7 +3,7 @@
 {% block content %}
 
     <div class="card">
-        <section class="avatar" style = "background: url({{instructor.avatar_url}});"></section>
+        <section class="avatar" style="background: url({{instructor.avatar_url}});"></section>
         <section class="details">
 
             <form method="POST" action="/instructors?_method=PUT">
@@ -21,5 +21,8 @@
             </form>
         </section>
     </div>
+        {% block js %}
+            <script src="/editScript.js"></script>
+        {% endblock js %}
 
-    {%endblock content%}
+     {%endblock content%}

@@ -3,7 +3,7 @@
 {% block content %}
 
     <div class="card">
-        <section class="avatar" style = "background: url({{member.avatar_url}})"></section>
+        <section class="avatar" style="background: url({{member.avatar_url}})"></section>
         <section class="details">
 
             <form method="POST" action="/members?_method=PUT">
@@ -19,7 +19,10 @@
                 <input type="hidden" name="id" value="{{member.id}}">
                 <button type="submit">Deletar</button>
             </form>
+
         </section>
     </div>
-
-    {%endblock content%}
+    {% block js %}
+            <script src="/editScript.js"></script>
+        {% endblock js %}
+{%endblock content%}
