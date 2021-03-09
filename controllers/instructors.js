@@ -7,26 +7,6 @@ const Intl = require('intl')
 exports.index = (req, res) => {
     return res.render('instructors/index', { instructors: data.instructors })
 }
-exports.show = (req, res) => {
-    //req.params.id = /:id/:members
-    const { id } = req.params
-
-    const foundInstructor = data.instructors.find((instructor) => {
-        return instructor.id == id
-    })
-
-    if (!foundInstructor)
-        return res.send("instructor not found")
-
-
-    const instructor = {
-        ...foundInstructor,
-        age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
-    }
-    return res.render('instructors/show', { instructor })
-}
 exports.create = (req, res) => {
     return res.render('instructors/create')
 }
@@ -65,6 +45,26 @@ exports.post = (req, res) => {
     })
     // return res.send(req.body)
 }
+exports.show = (req, res) => {
+    //req.params.id = /:id/:members
+    const { id } = req.params
+
+    const foundInstructor = data.instructors.find((instructor) => {
+        return instructor.id == id
+    })
+
+    if (!foundInstructor)
+        return res.send("instructor not found")
+
+
+    const instructor = {
+        ...foundInstructor,
+        age: age(foundInstructor.birth),
+        services: foundInstructor.services.split(","),
+        created_at: new Intl.DateTimeFormat('pt-BR').format(foundInstructor.created_at)
+    }
+    return res.render('instructors/show', { instructor })
+}
 exports.edit = (req, res) => {
     const { id } = req.params
 
@@ -78,7 +78,7 @@ exports.edit = (req, res) => {
 
     const instructor = {
         ...foundInstructor,
-        birth: date(foundInstructor.birth)
+        birth: date(foundInstructor.birth).iso
     }
 
     return res.render('instructors/edit', { instructor })

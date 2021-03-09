@@ -34,79 +34,65 @@
 
 <div class="item">
     <div>Tipo Sanguíneo</div>
-    <select name="blood">
-        <option value="A1">A+
-            {%if member.blood == "A1"%}
-                selected
-                {%endif%}
+    <select name="blood" id="blood">
+        <option value="A1" 
+        {%if member.blood == "A1"%} 
+        selected="selected" {%endif%}>A+
+        </option>
 
-            </option>
+        <option value="A0" 
+        {%if member.blood == "A0"%} 
+        selected="selected" {%endif%}>A-
+        </option>
 
-            <option value="A0">A-
-                {%if member.blood == "A0"%}
-                    selected
-                    {%endif%}
+        <option value="B1" 
+        {%if member.blood == "B1"%} 
+        selected="selected" {%endif%}>B+
+        </option>
 
-                </option>
+        <option value="B0" 
+        {%if member.blood == "B1"%} 
+        selected="selected" {%endif%}>B-
+        </option>
 
-                <option value="B1">B+
-                    {%if member.blood == "B1"%}
-                        selected
-                        {%endif%}
+        <option value="AB1" 
+        {%if member.blood == "AB1"%} 
+        selected="selected" {%endif%}>AB+
+        </option>
 
-                    </option>
+        <option value="AB0" 
+        {%if member.blood == "AB0"%} 
+        selected="selected" {%endif%}>AB-
+        </option>
 
-                    <option value="B0">B-
-                        {%if member.blood == "B1"%}
-                            selected
-                            {%endif%}
+        <option value="O1" 
+        {%if member.blood == "O1"%} 
+        selected="selected" {%endif%}>O+
+        </option>
 
-                        </option>
+        <option value="O0" 
+        {%if member.blood == "O0"%} 
+        selected="selected" {%endif%}>O-
+        </option>
+    </select>
 
-                        <option value="AB1">AB+
-                            {%if member.blood == "AB1"%}
-                                selected
-                                {%endif%}
+</div>
 
-                            </option>
+<div class=" item">
 
-                            <option value="AB0">AB-
-                                {%if member.blood == "AB0"%}
-                                    selected
-                                    {%endif%}
+    <div>Peso (Kg)</div>
+    <div>
+        <input type="number" name="weight" value="{{ member.weight }}">
 
-                                </option>
+    </div>
+</div>
 
-                                {%if member.blood == "O1"%}
-                                    selected
-                                    {%endif%}
-                                    <option value="O1">O+
+<div class="item">
 
-                                    </option>
+    <div>Altura (cm)</div>
+    <div>
+        <input type="number" name="height" value="{{ member.height }}">
 
-                                    {%if member.blood == "O0"%}
-                                        selected
-                                        {%endif%}
-                                        <option value="O0">O-</option>
-                                    </select>
-
-                                </div>
-
-                                <div class=" item">
-
-                                    <div>Peso (Kg)</div>
-                                    <div>
-                                        <input type="number" name="weight" value="{{ member.wheight }}">
-
-                                    </div>
-                                </div>
-
-                                <div class="item">
-
-                                    <div>Altura (cm)</div>
-                                    <div>
-                                        <input type="number" name="height" value="{{ member.height }}">
-
-                                    </div>
-                                </div>
-                                <button type="submit">Salvar</button>
+    </div>
+</div>
+<button type="submit">Salvar</button>

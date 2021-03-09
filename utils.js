@@ -22,6 +22,31 @@ module.exports = {
         const year = date.getUTCFullYear()
         const month = `0${date.getUTCMonth() + 1}`.slice(-2)
         const day = `0${date.getUTCDate()}`.slice(-2)
-       return`${year}-${month}-${day}`
+
+        return {//iso
+            day,
+            month,
+            year,
+            iso: `${year}-${month}-${day}`,
+            birthDay: `${day}/${month}`
+        }
+    },
+
+    memberBlood: function (blood) {
+        if (blood.includes("0")) {
+            return blood.replace("0", "-")
+        }
+        if (blood.includes("1")) {
+            return blood.replace("1", "+")
+        }
+
+
+
+
+        // for (bloodType of bloodTypes) {
+        //         if (bloodTypes.includes(bloodType.getAttribute("0"))) {
+        //     console.log(bloodTypes.slice(-2))
+        //     }
+        // }
     }
 }
